@@ -7,14 +7,9 @@ android {
         applicationId 'app.jc2.client'
         buildConfigField 'boolean', 'HIDDEN_APP', 'false'
         minSdkVersion 16
-<<<<<<< HEAD
-        targetSdkVersion 29
-        versionCode 10
-        versionName '1.0'
-=======
         targetSdkVersion 30
-        versionCode 68
-        versionName '6.7'
+        versionCode 11
+        versionName '1.1'
         multiDexEnabled true
     }
 
@@ -25,7 +20,6 @@ android {
 
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
->>>>>>> upstream/master
     }
 
     lintOptions {
@@ -69,7 +63,7 @@ if (getGradle().getStartParameter().getTaskRequests().toString().contains('Googl
     apply plugin: 'com.google.firebase.crashlytics'
 
     task copyJson(type: Copy) {
-        from '../../environment/google-services'
+        from '../environment/google-services'
         into '.'
         include 'traccar-client-android.json'
         rename('traccar-client-android.json', 'google-services.json')

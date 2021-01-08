@@ -34,8 +34,8 @@ import android.util.Log;
 
 public class TrackingService extends Service {
 
-    public static final String ACTION_STARTED = "org.traccar.action.SERVICE_STARTED";
-    public static final String ACTION_STOPPED = "org.traccar.action.SERVICE_STOPPED";
+    public static final String ACTION_STARTED = "app.jc2.client.action.SERVICE_STARTED";
+    public static final String ACTION_STOPPED = "app.jc2.client.action.SERVICE_STOPPED";
 
     private static final String TAG = TrackingService.class.getSimpleName();
     private static final int NOTIFICATION_ID = 1;

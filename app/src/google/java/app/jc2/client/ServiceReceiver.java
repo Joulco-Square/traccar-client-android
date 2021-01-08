@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.traccar.client;
+package app.jc2.client;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -27,7 +27,7 @@ public class ServiceReceiver extends BroadcastReceiver {
     public static final String KEY_DURATION = "serviceTime";
 
     private static long startTime = 0;
-    
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (TrackingService.ACTION_STARTED.equals(intent.getAction())) {
