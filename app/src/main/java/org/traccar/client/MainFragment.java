@@ -77,6 +77,7 @@ public class MainFragment extends PreferenceFragmentCompat implements OnSharedPr
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
         if (BuildConfig.HIDDEN_APP && Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
             removeLauncherIcon();
         }
@@ -220,6 +221,7 @@ public class MainFragment extends PreferenceFragmentCompat implements OnSharedPr
             } else {
                 stopTrackingService();
             }
+            ((MainApplication) getActivity().getApplication()).handleRatingFlow(getActivity());
         } else if (key.equals(KEY_DEVICE)) {
             findPreference(KEY_DEVICE).setSummary(sharedPreferences.getString(KEY_DEVICE, null));
         }
@@ -256,10 +258,6 @@ public class MainFragment extends PreferenceFragmentCompat implements OnSharedPr
             Set<String> requiredPermissions = new HashSet<>();
             if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 requiredPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-                    && ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                requiredPermissions.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION);
             }
             permission = requiredPermissions.isEmpty();
             if (!permission) {
